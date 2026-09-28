@@ -5,7 +5,7 @@ REPO=megamen32/adb-lease-guard
 VERSION=${ADB_LEASE_GUARD_VERSION:-latest}
 PREFIX=/usr/local
 LEASE_HOST=
-LEASE_BIN=device-lease
+LEASE_BIN=
 SERIALS=
 MODELS=
 ADB_PATH=
@@ -51,6 +51,10 @@ done
 if [[ -z "$LEASE_HOST" && -r /dev/tty ]]; then
   read -r -p 'SSH alias for the existing lease server: ' LEASE_HOST </dev/tty
 fi
+if [[ -z "$LEASE_BIN" && -r /dev/tty ]]; then
+  read -r -p 'Lease command on that server [device-lease]: ' LEASE_BIN </dev/tty
+fi
+LEASE_BIN=${LEASE_BIN:-device-lease}
 if [[ -z "$SERIALS" && -z "$MODELS" && -r /dev/tty ]]; then
   read -r -p 'Device serial(s), comma separated: ' SERIALS </dev/tty
   read -r -p 'Device model(s), comma separated (optional): ' MODELS </dev/tty

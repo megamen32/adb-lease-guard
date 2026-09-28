@@ -1,6 +1,6 @@
 param(
     [string]$LeaseHost,
-    [string]$LeaseBin = 'device-lease',
+    [string]$LeaseBin,
     [string]$Serials,
     [string]$Models,
     [string]$AdbPath,
@@ -14,6 +14,10 @@ $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
 if (-not $LeaseHost) { $LeaseHost = Read-Host 'SSH alias for the existing lease server' }
+if (-not $LeaseBin) {
+    $LeaseBin = Read-Host 'Lease command on that server [device-lease]'
+    if (-not $LeaseBin) { $LeaseBin = 'device-lease' }
+}
 if (-not $Serials -and -not $Models) {
     $Serials = Read-Host 'Device serial(s), comma separated'
     $Models = Read-Host 'Device model(s), comma separated (optional)'

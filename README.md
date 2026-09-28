@@ -17,7 +17,14 @@ Have ADB installed and an SSH alias for a lease server first. That server must
 provide a command with `check LEASE_ID` as described below. Replace the
 example host, serial, and model with your own values.
 
-**Linux or macOS** (installs ahead of the existing `adb` in `/usr/local/bin`):
+**Linux or macOS** (prompts for the lease server, its command, and the device;
+installs ahead of the existing `adb` in `/usr/local/bin`):
+
+```sh
+curl -fsSL https://github.com/megamen32/adb-lease-guard/releases/latest/download/install.sh | sudo bash
+```
+
+For a noninteractive installation, pass the values explicitly:
 
 ```sh
 curl -fsSL https://github.com/megamen32/adb-lease-guard/releases/latest/download/install.sh |
@@ -26,7 +33,7 @@ curl -fsSL https://github.com/megamen32/adb-lease-guard/releases/latest/download
 ```
 
 **Windows PowerShell** (installs at the first `adb.exe` found on `PATH` and
-prompts for the lease host and device):
+prompts for the lease host, its command, and the device):
 
 ```powershell
 irm https://github.com/megamen32/adb-lease-guard/releases/latest/download/install.ps1 | iex
@@ -42,8 +49,8 @@ On Linux and macOS, pass `--prefix "$HOME/.local"` for a user installation,
 then put `$HOME/.local/bin` before other ADB directories on `PATH`. The system
 installation above needs write access to `/usr/local`. Use a pinned tag instead
 of `latest` when repeatable installation matters: set
-`ADB_LEASE_GUARD_VERSION=v0.1.1` before running `install.sh`, or pass
-`-Version v0.1.1` to `install.ps1`.
+`ADB_LEASE_GUARD_VERSION=v0.1.2` before running `install.sh`, or pass
+`-Version v0.1.2` to `install.ps1`.
 
 ## Use
 
