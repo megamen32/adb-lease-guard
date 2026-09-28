@@ -11,6 +11,7 @@ param(
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
 
 if (-not $LeaseHost) { $LeaseHost = Read-Host 'SSH alias for the existing lease server' }
 if (-not $Serials -and -not $Models) {

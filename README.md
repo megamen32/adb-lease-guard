@@ -42,8 +42,8 @@ On Linux and macOS, pass `--prefix "$HOME/.local"` for a user installation,
 then put `$HOME/.local/bin` before other ADB directories on `PATH`. The system
 installation above needs write access to `/usr/local`. Use a pinned tag instead
 of `latest` when repeatable installation matters: set
-`ADB_LEASE_GUARD_VERSION=v0.1.0` before running `install.sh`, or pass
-`-Version v0.1.0` to `install.ps1`.
+`ADB_LEASE_GUARD_VERSION=v0.1.1` before running `install.sh`, or pass
+`-Version v0.1.1` to `install.ps1`.
 
 ## Use
 
